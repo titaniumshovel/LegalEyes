@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LegalEyes Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    button {
+      background-color: #0060df;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    button:hover {
+      background-color: #003eaa;
+    }
+    
+    .status {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    
+    .success {
+      background-color: #e6f4ea;
+      color: #137333;
+    }
+    
+    .error {
+      background-color: #fce8e6;
+      color: #c5221f;
+    }
+  </style>
+</head>
+<body>
+  <h1>LegalEyes Options</h1>
+  
+  <div class="form-group">
+    <label for="api-key">Gemini API Key:</label>
+    <input type="text" id="api-key" placeholder="Enter your Gemini API key">
+    <p>You need a Gemini API key to use this extension. Get one at <a href="https://aistudio.google.com/app/apikey" target="_blank">https://aistudio.google.com/app/apikey</a></p>
+  </div>
+  
+  <button id="save-btn">Save</button>
+  
+  <div id="status" class="status" style="display: none;"></div>
+  
+  <script src="options.js"></script>
+</body>
+</html>

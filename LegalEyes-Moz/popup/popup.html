@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="popup-header">
+      <img id="logo-img" src="../icons/legaleyes-mainlogo.png" alt="LegalEyes Logo">
+      <button id="popout-btn" class="popout-action-btn" title="Open analysis in new window">⇗</button>
+    </div>
+
+    <div id="api-key-missing" class="hidden">
+      <p>You need to set up a Gemini API key to use this extension.</p>
+      <button id="open-options-btn">Set Up API Key</button>
+    </div>
+    
+    <div id="main-content">
+      <div class="buttons">
+        <button id="summarize-btn">Summarize Terms & Conditions</button>
+      </div>
+      
+      <div id="loading" class="hidden">
+        <p>Analyzing Terms & Conditions...</p>
+        <div class="spinner"></div>
+      </div>
+      
+      <div id="results" class="hidden">
+        <div id="action-buttons" class="action-buttons hidden"> <!-- Start hidden -->
+          <button id="copy-summary-btn" title="Copy summary text to clipboard">Copy Summary</button>
+          <button id="copy-clauses-btn" title="Copy concerning clauses text to clipboard">Copy Clauses</button>
+          <button id="copy-all-btn" title="Copy summary and clauses text to clipboard">Copy All</button>
+          <button id="save-txt-btn" title="Save summary and clauses as a .txt file">Save as TXT</button>
+          <!-- Add placeholders for other save options if you plan them later -->
+          <!-- <button id="save-pdf-btn" title="Save as PDF (Not Implemented)" disabled>Save as PDF</button> -->
+        </div>
+
+        <h2>Summary</h2>
+        <div id="summary"></div>
+        
+        <h2>Concerning Clauses</h2>
+        <div id="filter-controls" class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="high">High Severity</button>
+          <button class="filter-btn" data-filter="privacy">Privacy</button>
+          <button class="filter-btn" data-filter="legal-rights">Legal Rights</button>
+          <button class="filter-btn" data-filter="data-usage">Data Usage</button>
+          <button class="filter-btn" data-filter="service-changes">Service Changes</button>
+          <button class="filter-btn" data-filter="user-content">User Content</button>
+          <!-- Add more categories if needed -->
+        </div>
+        <div id="concerning-clauses"></div>
+
+        
+        
+      </div>
+      
+      <div id="error" class="hidden">
+        <p>Couldn't find or process Terms & Conditions on this page.</p>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

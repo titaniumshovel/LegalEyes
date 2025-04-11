@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LegalEyes - Analysis</title>
+    <!-- Link to the SAME CSS file as the popup for consistent styling -->
+    <link rel="stylesheet" href="../popup/popup.css">
+    <style>
+        /* Add specific styles for the popout window if needed */
+        body {
+            width: auto; /* Override fixed width from popup.css */
+            min-width: 500px; /* Set a minimum usable width */
+            min-height: 400px;
+            padding: 20px; /* Add padding around the content */
+        }
+        .container {
+            /* Allow container to use available width */
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        /* Hide elements not needed/wanted in popout */
+        #api-key-missing,
+        #main-content .buttons, /* Hide the original "Summarize" button */
+        .popout-btn-container /* Hide the popout button itself */
+         {
+            display: none !important;
+        }
+         /* Ensure results and action buttons are potentially visible */
+         #results, #action-buttons {
+             display: block; /* Override hidden class if needed */
+         }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LegalEyes Analysis</h1>
+        <!-- Results Area -->
+        <div id="results">
+            <h2>Summary</h2>
+            <div id="popout-summary">
+                <p>Loading summary...</p>
+            </div>
+
+            <h2>Concerning Clauses</h2>
+            <!-- Filters could be added here later if desired -->
+            <div id="popout-clauses">
+                 <p>Loading concerning clauses...</p>
+            </div>
+
+            <!-- Optional: Include action buttons? -->
+            <!-- For simplicity initially, we might omit them -->
+             <div id="action-buttons" class="action-buttons">
+                <button id="copy-summary-btn" title="Copy summary text to clipboard">Copy Summary</button>
+                <button id="copy-clauses-btn" title="Copy concerning clauses text to clipboard">Copy Clauses</button>
+                <button id="copy-all-btn" title="Copy summary and clauses text to clipboard">Copy All</button>
+                <button id="save-txt-btn" title="Save summary and clauses as a .txt file">Save as TXT</button>
+             </div>
+
+        </div>
+        <div id="popout-error" class="hidden" style="background-color: #fce8e6; color: #c5221f; padding: 12px; border-radius: 4px; margin-top: 15px;">
+             Error loading analysis data.
+        </div>
+    </div>
+    <!-- Link to a new JS file for the popout -->
+    <script src="popout.js"></script>
+</body>
+</html>

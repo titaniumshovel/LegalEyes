@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "LegalEyes",
+  "version": "1.0",
+  "description": "AI-powered Terms and Conditions summarizer that flags concerning clauses using Google's Gemini API",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_icon": "icons/icon-48.png",
+    "default_title": "LegalEyes",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_scripts/content.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "options/options.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "lib/pdfjs/pdf.mjs",
+        "lib/pdfjs/pdf.worker.mjs"
+       ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

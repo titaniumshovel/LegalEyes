@@ -1,0 +1,381 @@
+/* === Basic Layout & Typography === */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  width: 400px; /* Default width for the popup */
+  margin: 0;
+  padding: 16px;
+  color: #333;
+  line-height: 1.5;
+  background-color: #ffffff; /* Ensure a background color */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Consistent spacing between major sections */
+}
+
+/* === Header Styling === */
+.popup-header {
+  display: flex;
+  justify-content: space-between; /* Pushes h1 left, button right */
+  align-items: center; /* Vertically aligns items */
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 2px; /* Space below the header */
+}
+
+/* Styles for the logo image */
+.popup-header #logo-img {
+  height: 48px; /* Adjust height as needed */
+  width: auto; /* Maintain aspect ratio */
+  display: block; /* Prevents extra space below image */
+}
+
+/* --- Pop Out Button Styling --- */
+.popout-action-btn {
+  background: none;
+  border: none;
+  font-size: 22px; /* Adjust size of the arrow symbol */
+  line-height: 1;
+  padding: 2px 4px;
+  margin-left: 8px;
+  cursor: pointer;
+  color: #5f6368; /* Subtle grey */
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.popout-action-btn:hover {
+  background-color: #f1f3f4; /* Light highlight on hover */
+  color: #202124; /* Darker symbol on hover */
+}
+
+.popout-action-btn:active {
+  background-color: #e8eaed;
+}
+
+
+/* === Main Content Sections === */
+h2 {
+  font-size: 16px;
+  margin: 16px 0 8px 0;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background-color: #0060df; /* Theme color */
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+/* === General & Summarize Button Styling === */
+.buttons {
+  text-align: center;
+  margin-bottom: 16px; /* Space below the Summarize button */
+}
+
+/* General style for main action buttons */
+button {
+  background-color: #0060df; /* Theme color */
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background-color: #003eaa; /* Darker shade */
+}
+
+button:active {
+  transform: translateY(1px); /* Subtle press effect */
+}
+
+/* === Utility Classes === */
+.hidden {
+  display: none !important; /* Use !important to ensure it overrides */
+}
+
+/* === Loading Indicator === */
+#loading {
+  text-align: center;
+  padding: 20px 0;
+  color: #5f6368;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #0060df; /* Theme color */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1.5s linear infinite;
+  margin: 16px auto 0 auto; /* Centered below text */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === Results Display === */
+#results {
+  /* Basic container, animation applied here */
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Summary Section --- */
+#summary {
+  background-color: #f9f9fa;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.6; /* Improve readability */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom: 16px; /* Space below summary */
+}
+
+#summary ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+#summary li {
+  margin-bottom: 8px;
+}
+
+#summary li:last-child {
+  margin-bottom: 0;
+}
+
+#summary p { /* Style paragraphs used as fallbacks */
+  margin: 0;
+}
+
+/* --- Filter Button Styles --- */
+.filter-buttons {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  background-color: #e8eaed; /* Light grey */
+  color: #3c4043; /* Dark grey */
+  border: none;
+  padding: 4px 12px;
+  border-radius: 16px; /* Rounded pill shape */
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s, color 0.2s;
+  font-weight: 500;
+  /* Override general button styles */
+  box-shadow: none;
+  transform: none;
+}
+
+.filter-btn:hover {
+  background-color: #d2d5db;
+}
+
+.filter-btn.active {
+  background-color: #0060df; /* Theme color */
+  color: white;
+  font-weight: 600;
+}
+
+.concerning-item {
+  margin-bottom: 16px;
+  padding: 16px;
+  border-radius: 6px;
+  background-color: #f9f9fa;
+  border-left: 4px solid #ccc; /* Default border */
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* Style items based on severity using data attribute */
+.concerning-item[data-severity="high"] {
+  border-left-color: #d70022; /* Red */
+  background-color: #fff5f5; /* Lighter red background */
+}
+.concerning-item[data-severity="medium"] {
+  border-left-color: #f9ab00; /* Orange */
+   background-color: #fff8e1; /* Lighter yellow background */
+}
+.concerning-item[data-severity="low"] {
+  border-left-color: #1e8e3e; /* Green */
+   background-color: #e6f4ea; /* Lighter green background */
+}
+
+.concerning-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333; /* Title color */
+  margin-bottom: 8px;
+  display: flex; /* Use flex to align badge */
+  align-items: center;
+  justify-content: space-between; /* Pushes badge to the right */
+}
+
+.concerning-text {
+  color: #444;
+  white-space: pre-line; /* Preserve line breaks from AI/HTML */
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.concerning-text code {
+  background-color: #f1f1f1;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+/* Styling for the 'No Clauses Found' message container */
+.no-clauses-message {
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 16px; /* Match spacing */
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  border: 1px solid transparent; /* Base for border */
+}
+
+/* Specific style for the success state (green) */
+.success-message {
+  background-color: #e6f4ea; /* Light green */
+  color: #137333; /* Dark green */
+  border-color: #b7e1c6; /* Slightly darker green border */
+  font-style: normal; /* Override italics if needed */
+}
+
+.no-clauses-message p { /* Style the paragraph inside */
+    margin: 0;
+}
+
+/* --- Severity Badge Styles --- */
+.severity-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.severity-low {
+  background-color: #e6f4ea; /* Light green */
+  color: #137333; /* Dark green */
+}
+
+.severity-medium {
+  background-color: #feefc3; /* Light yellow/orange */
+  color: #a05a00; /* Dark yellow/orange */
+}
+
+.severity-high {
+  background-color: #fce8e6; /* Light red */
+  color: #c5221f; /* Dark red */
+}
+
+/* --- Style for Filtered Out Items --- */
+.concerning-item.filtered-out {
+  display: none;
+}
+
+/* --- Action Buttons Section --- */
+.action-buttons {
+  margin-bottom: 20px; /* ADD space below the buttons before Summary */
+  padding-bottom: 0; /* Remove padding if not needed */
+  border-bottom: none; /* Ensure no bottom border if added previously */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center; /* Center buttons */
+}
+
+#action-buttons button {
+  background-color: #f1f3f4; /* Lighter grey */
+  color: #3c4043;
+  border: 1px solid #dadce0;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+  /* Override general button styles */
+  box-shadow: none;
+  transform: none;
+}
+
+#action-buttons button:hover {
+  background-color: #e8eaed;
+  border-color: #c6c9ce;
+}
+
+#action-buttons button:active {
+  background-color: #d2d5db;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+#action-buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Helper class for copy feedback */
+.copied-feedback {
+    background-color: #e6f4ea !important; /* Success green */
+    color: #137333 !important;
+    border-color: #b7e1c6 !important;
+}
+
+/* === Error Message Styling === */
+#error {
+  background-color: #fce8e6; /* Light red */
+  color: #c5221f; /* Dark red */
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 10px; /* Add some space if it appears */
+  border: 1px solid #f4c7c5; /* Subtle border */
+}
+
+/* === API Key Missing Message --- */
+#api-key-missing {
+    /* Styles for this specific section if needed */
+     padding: 15px;
+     background-color: #fff8e1;
+     border: 1px solid #ffe5b0;
+     border-radius: 4px;
+     text-align: center;
+}
+
+#api-key-missing button {
+    /* Style the 'Set Up API Key' button distinctively if desired */
+     margin-top: 10px;
+}
