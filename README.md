@@ -56,27 +56,3 @@ NOTE: LegalEyes provides AI-generated analysis and is NOT a substitute for legal
     *   Security Risk: Browser local storage is not designed for highly sensitive secrets. Other extensions or malware on your computer could potentially access it, although browser protections aim to mitigate this.
     *   Recommendation: Use an API key generated specifically for this extension. Monitor its usage via your Google AI Studio dashboard. Avoid using keys associated with paid quotas or sensitive projects if possible. Revoke the key if you suspect misuse.
 *   API Costs: While Google AI Studio offers a free tier for Gemini, heavy usage could potentially exceed free limits and incur costs. Monitor your usage.
-
-## License
-
-This project is licensed under the MIT License.
-
-Copyright 2025
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
